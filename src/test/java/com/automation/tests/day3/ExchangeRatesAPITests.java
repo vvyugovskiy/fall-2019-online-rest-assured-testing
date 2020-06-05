@@ -14,7 +14,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import static io.restassured.RestAssured.*;
 
 public class ExchangeRatesAPITests {
-
     /**
      * * <p>{@code @BeforeAll} methods must have a {@code void} return type,
      * * must not be {@code private}, and must be {@code static} by default.
@@ -25,11 +24,8 @@ public class ExchangeRatesAPITests {
         // https://openrates.io/
         // for every single request this is a base URI
         baseURI = "http://api.openrates.io";
-
     }
-
     //get latest currency rates
-
     @Test
     public void getLatestRates() {
         // after ? we specify query parameters. If there are couple of them we use & to concatenate them
@@ -62,9 +58,7 @@ public class ExchangeRatesAPITests {
         String date = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         response.then().assertThat().body("date", containsString("2020-05-19")); // use String date to make dynamic
         //is - same as equals
-
     }
-
     @Test
     @DisplayName("get history of rates for 2008")
     public void getHistoryOfRates() {
@@ -92,7 +86,6 @@ public class ExchangeRatesAPITests {
         float actual = response.jsonPath().get("rates.USD");
 
         assertEquals(1.0,actual);
-
         /**
          *  Get a JsonPath view of the response body. This will let you use the JsonPath syntax to get values from the response.
          *      * Example:

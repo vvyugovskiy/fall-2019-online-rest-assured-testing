@@ -42,7 +42,7 @@ public class SpartanTests {
 
         // use HashMap><>
         Map<String,Object> requestMap = new HashMap<>();
-        requestMap.put("name","Marufjom");
+        requestMap.put("name","Marufjon");
         requestMap.put("gender","Male");
         requestMap.put("phone","2023615117");
 
@@ -72,7 +72,7 @@ public class SpartanTests {
 
         // use HashMap><>
         Map<String,Object> requestMap = new HashMap<>();
-        requestMap.put("name","Marufjom");
+        requestMap.put("name","Marufjon");
         requestMap.put("gender","Male");
         requestMap.put("phone","2023615117");
 

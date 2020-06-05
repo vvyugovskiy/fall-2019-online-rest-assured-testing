@@ -19,6 +19,7 @@ public class ORDSTestsday4 {
 
     @BeforeAll
     public static void setup() {
+
         baseURI = ConfigurationReader.getProperty("ORDS.URI");
     }
     /**

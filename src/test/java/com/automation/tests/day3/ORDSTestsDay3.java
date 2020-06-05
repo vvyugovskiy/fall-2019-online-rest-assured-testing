@@ -1,7 +1,5 @@
 package com.automation.tests.day3;
 
-import static io.restassured.RestAssured.*;
-
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
@@ -10,24 +8,22 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
-
+import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
 
 public class ORDSTestsDay3 {
 
     @BeforeAll
     public static void setup() {
-        baseURI = "http://54.167.107.90:1000/ords/hr";
+        baseURI = "http://3.91.62.1:1000/ords/hr";
     }
-
-    /**
+     /**
      * given path parameter is "/regions/{id}"
      * when user makes get request
      * then assert that status code is 200
      * and assert that region name is Europe
      * and assert that region id is 1
      */
-
     @Test
     public void verifyRegion() {
         given().
@@ -39,10 +35,8 @@ public class ORDSTestsDay3 {
                 body("region_id", is(1)).
                 time(lessThan(5L), TimeUnit.SECONDS);  // verify that response time is less than 5 second
     }
-
     @Test
     public void verifyEmployee() {
-
         Response response =
                 given().
                         contentType(ContentType.JSON).
@@ -65,9 +59,7 @@ public class ORDSTestsDay3 {
         System.out.println("nameOfFirstEmployee = " + nameOfFirstEmployee);
         System.out.println("nameOfLastEmployee = " + nameOfLastEmployee);
 
-
         Map<String, ?> firstEmployee = jsonPath.get("items[0]");
         System.out.print("firstEmployee = " + firstEmployee);
     }
-
 }
